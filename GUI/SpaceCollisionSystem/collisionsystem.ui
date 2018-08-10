@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CollisionSystem</class>
+ <widget class="QMainWindow" name="CollisionSystem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>906</width>
+    <height>745</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>906</width>
+    <height>745</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>CollisionSystem</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="startButton">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>380</y>
+      <width>141</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stopButton">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>420</y>
+      <width>141</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>Stop</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="numParticlesInput">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>200</y>
+      <width>111</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="suffix">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>180</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Number of Particles</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="seedInput">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>120</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>100</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>RNG Seed</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>630</y>
+      <width>121</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Warning Window</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="lookaheadTimeInput">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>650</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="suffix">
+     <string> sec</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="generateSeedButton">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>140</y>
+      <width>114</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string notr="true"/>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>Generate Seed</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="systemOutput">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>460</y>
+      <width>231</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>230</y>
+      <width>51</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Radius</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>250</y>
+      <width>31</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Min</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>250</y>
+      <width>31</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Max</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="minRadiusBox">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>270</y>
+      <width>62</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="maxRadiusBox">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>270</y>
+      <width>62</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pauseButton">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>650</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>Pause</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stepButton">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>650</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>Step</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="timestepLimitCheckbox">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>310</y>
+      <width>131</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Timestep Limit</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="timestepLimitInput">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>340</y>
+      <width>111</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="suffix">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="dimensionSelector">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>10</y>
+      <width>251</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab2D">
+     <property name="accessibleName">
+      <string/>
+     </property>
+     <attribute name="title">
+      <string>2D</string>
+     </attribute>
+     <widget class="QComboBox" name="algorithmSelector2D">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>241</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::NoContextMenu</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab3D">
+     <attribute name="title">
+      <string>3D</string>
+     </attribute>
+     <widget class="QComboBox" name="algorithmSelector3D">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>241</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::NoContextMenu</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tabOrbital">
+     <attribute name="title">
+      <string>Orbital</string>
+     </attribute>
+     <widget class="QComboBox" name="algorithmSelectorOrbital">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>241</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::NoContextMenu</enum>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QSlider" name="framerateSlider">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>650</y>
+      <width>141</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>630</y>
+      <width>71</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Framerate</string>
+    </property>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>600</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="page_2"/>
+   </widget>
+   <widget class="CollisionDisplay2D" name="collisionDisplay2D">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>600</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resetCameraButton">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>650</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>Reset Camera</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>906</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="displayTimestepViewable"/>
+    <addaction name="algTimestepViewable"/>
+    <addaction name="numCollisionsViewable"/>
+    <addaction name="systemKEViewable"/>
+    <addaction name="systemPEViewable"/>
+    <addaction name="totalEnergyViewable"/>
+    <addaction name="queueSizeViewable"/>
+    <addaction name="startConditionsViewable"/>
+   </widget>
+   <addaction name="menuView"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <action name="displayTimestepViewable">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Display Timestep</string>
+   </property>
+  </action>
+  <action name="numCollisionsViewable">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Number of collisions</string>
+   </property>
+  </action>
+  <action name="systemKEViewable">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>System KE</string>
+   </property>
+  </action>
+  <action name="systemPEViewable">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>System PE</string>
+   </property>
+  </action>
+  <action name="startConditionsViewable">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Start Conditions</string>
+   </property>
+  </action>
+  <action name="queueSizeViewable">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Queue Size</string>
+   </property>
+  </action>
+  <action name="totalEnergyViewable">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Total Energy</string>
+   </property>
+  </action>
+  <action name="algTimestepViewable">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Algorithm Timestep</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CollisionDisplay2D</class>
+   <extends>QGraphicsView</extends>
+   <header>collisiondisplay2d.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>algorithmSelector2D</tabstop>
+  <tabstop>algorithmSelector3D</tabstop>
+  <tabstop>seedInput</tabstop>
+  <tabstop>generateSeedButton</tabstop>
+  <tabstop>numParticlesInput</tabstop>
+  <tabstop>minRadiusBox</tabstop>
+  <tabstop>maxRadiusBox</tabstop>
+  <tabstop>timestepLimitCheckbox</tabstop>
+  <tabstop>timestepLimitInput</tabstop>
+  <tabstop>startButton</tabstop>
+  <tabstop>stopButton</tabstop>
+  <tabstop>framerateSlider</tabstop>
+  <tabstop>resetCameraButton</tabstop>
+  <tabstop>stepButton</tabstop>
+  <tabstop>pauseButton</tabstop>
+  <tabstop>lookaheadTimeInput</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
